@@ -7,7 +7,7 @@ const Jobs: CollectionConfig = {
   slug: 'jobs',
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'companyName', 'district', 'slug', 'updatedAt'],
+    defaultColumns: ['name', 'companyName', 'location', 'slug', 'updatedAt'],
     group: CollectionGroups.ContentCollections,
   },
   versions: {
@@ -19,18 +19,67 @@ const Jobs: CollectionConfig = {
     applyLink: true,
     description: true,
     companyName: true,
-    district: true,
+    role: true,
+    experience: true,
+    location: true,
+    salary: true,
   },
   access: {
     read: anyone,
-    update: authenticated,
-    delete: authenticated,
+    update: anyone,
+    delete: anyone,
     create: anyone,
   },
   fields: [
     {
       name: 'name',
       type: 'text',
+      required: true,
+    },
+    {
+      type: 'ui',
+      name: 'divider1',
+      admin: {
+        components: {
+          Field: '@/components/Divider#Divider',
+        },
+      },
+    },
+    {
+      name: 'companyName',
+      label: 'Company Name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'role',
+      type: 'text',
+    },
+    {
+      name: 'experience',
+      type: 'text',
+    },
+    {
+      name: 'location',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'salary',
+      type: 'text',
+    },
+    {
+      type: 'ui',
+      name: 'divider2',
+      admin: {
+        components: {
+          Field: '@/components/Divider#Divider',
+        },
+      },
+    },
+    {
+      name: 'description',
+      type: 'richText',
       required: true,
     },
     {
@@ -61,22 +110,9 @@ const Jobs: CollectionConfig = {
     {
       name: 'applyLink',
       type: 'text',
-    },
-    {
-      name: 'description',
-      type: 'richText',
-      required: true,
-    },
-    {
-      name: 'companyName',
-      label: 'Company Name',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'district',
-      type: 'text',
-      required: true,
+      admin: {
+        position: 'sidebar',
+      },
     },
   ],
 }
