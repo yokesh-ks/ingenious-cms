@@ -50,7 +50,8 @@ export default buildConfig({
   collections: collections,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
-  csrf: ["https://cms.companies.ingeniousclan.com"],
+  cors: ["http://localhost:5173", "https://cms.companies.ingeniousclan.com", "https://cms.ingeniousclan.com"],
+  csrf: ["http://localhost:5173", "https://cms.companies.ingeniousclan.com", "https://cms.ingeniousclan.com"],
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
