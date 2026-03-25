@@ -7,7 +7,6 @@ dist/
 build/
 
 # Payload CMS generated
-src/payload-types.ts
 .payload/
 
 # Environment variables
